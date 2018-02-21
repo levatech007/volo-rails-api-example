@@ -12,13 +12,12 @@ Calendar.destroy_all
 
 # Users
 users_data = []
-10.times do
-  first_name = FFaker::Name.first_name
-  last_name = FFaker::Name.last_name
+names = ["Melissa", "John", "Jane", "Mary", "Dan", "Tom"]
+names.each do |name|
   users_data << {
-    name: first_name + " " + last_name,
+    name: name,
     password: "abcd1234",
-    email: "#{first_name[0]}_#{last_name}@example.com".downcase
+    email: "#{name}@example.com".downcase
   }
 end
 
@@ -37,10 +36,10 @@ end
 locations = Location.create(locations_data)
 
 reviews_data = []
-first_name = FFaker::Name.first_name
+names = ["Melissa", "John", "Jane", "Mary", "Dan", "Tom"]
 10.times do
   reviews_data << {
-    author: first_name,
+    author: names.sample,
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam lorem lacus,
     vulputate cursus sodales id, feugiat sit amet arcu. Vestibulum et tortor consequat
     purus dictum egestas eget in turpis. Nulla aliquet eros vel mattis luctus.",
