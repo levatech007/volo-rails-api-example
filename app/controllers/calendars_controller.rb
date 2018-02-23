@@ -5,6 +5,10 @@ class CalendarsController < ApplicationController
         render json: @calendars
     end
 
+    # def show
+    #
+    # end
+
     def create
         calendar = Calendar.create(
             location: params[:location],
