@@ -7,8 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = current_user.id
-    @user = User.find_by_id(id: user_id)
-    render json: @user
+    p(current_user)
+    p(params)
+    @user = User.find(params[:id])
+    if @user.id == current_user.id
+      render :json => @user.to_json( :include => :calendars )
+    end
   end
 end
