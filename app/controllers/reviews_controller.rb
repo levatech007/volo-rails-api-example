@@ -7,30 +7,21 @@ class ReviewsController < ApplicationController
     end
 
     def create
-      # p(user)
       p(params)
       p(current_user)
-      @review = Review.new(
+      review = Review.new(
         author: params[:author],
         content: params[:content],
-        rating: params[:rating]
+        rating: params[:rating],
+        title: params[:title],
       )
       location = Location.find(params[:location_id])
-      user = User.find(params[:user_id])
-
-      @review.user_id = user.id
-      @review.location_id = location.id
-      # @review.user_id = @user.id #may need revision
-      if @review.save
-        render json: {review: @review}
+      review.location_id = location.id
+      review.user_id = current_user.id
+      if review.save
+        render json: {review: review}
       end
     end
 
-    private
 
-    def review_params
-        params.require(:review).permit(:author, :content, :rating)
-    end
-    # def destroy
-    # end
 end
