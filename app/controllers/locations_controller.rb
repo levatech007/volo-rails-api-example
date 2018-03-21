@@ -6,12 +6,14 @@ class LocationsController < ApplicationController
     end
 
     def show
+      location_id = params[:id]
       @location = Location.find(params[:id])
-      # render json: @location
+      reviews = Review.where(location_id: location_id)
+      all_ratings = reviews.map {|review| review[:rating].to_f}
+      avg_rating = (all_ratings.reduce(:+)/all_ratings.length).round(1)
+      @location.rating = avg_rating
       render :json => @location.to_json( :include => :reviews )
     end
-
-
 
     def create
         @location = Location.create(
