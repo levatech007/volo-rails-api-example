@@ -2,7 +2,7 @@
 
 Volo (Italian for flight) is an app for plane spotters. You can find information about plane spotting locations around the world with user reviews of each location. The app also lets you create an account, check weather forecast for chosen location as well as add a select day to your calendar.
 
-![Wireframes](/src/images/volo-homepage.png)
+![Wireframes](/images/volo-homepage.png)
 
 
 ### Technologies:
@@ -40,29 +40,29 @@ To install dependencies on the back end, run:
 ## User Stories:
 - Users can create an account and login.
 
-![Wireframes](/src/images/login-page.png)
+![Wireframes](/images/login-page.png)
 
 - Users can select a plane spotting location and see information about that locations, including a map.
 - Users can read other users reviews of the location as well as post their own review.
 
-![Wireframes](/src/images/locations-menu-page.png)
+![Wireframes](/images/locations-menu-page.png)
 
-![Wireframes](/src/images/location-page.png)
+![Wireframes](/images/location-page.png)
 
-![Wireframes](/src/images/location-review-page.png)
+![Wireframes](/images/location-review-page.png)
 
 - Users can select a location and see weather forecast for the next 4 days.
 - Users can add a day to their calendar with weather information as well as add notes prior to saving their selection.
 
-![Wireframes](/src/images/calendar-page.png)
+![Wireframes](/images/calendar-page.png)
 
 
 ## Wireframes
 
-![Wireframes](/src/images/wireframes.JPG)
+![Wireframes](/images/wireframes.JPG)
 
 ## ERD
-![Wireframes](/src/images/ERD.png)
+![Wireframes](/images/ERD.png)
 
 ## Unsolved Problems: 
 - Header does not update at login, refresh needed to display Profile and Log out button.
