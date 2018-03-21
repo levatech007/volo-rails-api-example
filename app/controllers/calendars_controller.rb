@@ -1,5 +1,6 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
+  require 'date'
 
     def index
         @calendars = Calendar.all()
@@ -9,6 +10,7 @@ class CalendarsController < ApplicationController
     def show
       user_id = current_user.id
       @calendar = Calendar.find(params[:user_id])
+      p(Date.today) #use for weather info
       render json: @calendar
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226191157) do
+ActiveRecord::Schema.define(version: 20180321211427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180226191157) do
     t.string "month"
     t.string "weekday"
     t.string "icon_url"
+    t.boolean "past_event", default: false
     t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
