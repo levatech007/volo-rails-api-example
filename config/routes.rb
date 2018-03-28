@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :reviews
   resources :calendars
   resources :users
+  get "locations/:id/weather", to: "locations#weather", as: "location_weather"
 end
