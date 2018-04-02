@@ -7,6 +7,7 @@ Volo (Italian for flight) is an app for plane spotters. You can find information
 
 ### Technologies:
 The following technologies made it possible:
+
 Front end:
 - React.js
 - Bootstrap 4.0
@@ -64,10 +65,10 @@ To install dependencies on the back end, run:
 ## ERD
 ![Wireframes](/images/ERD.png)
 
-## Unsolved Problems: 
+## Unsolved Problems:
 - Header does not update at login, refresh needed to display Profile and Log out button.
-- If no selection is made at locations menu, submitting will generate error as page is redirected to ‘/locations/0’ that does not exist. 
-- Routes don’t have any authorization. 
+- If no selection is made at locations menu, submitting will generate error as page is redirected to ‘/locations/0’ that does not exist.
+- Routes don’t have any authorization.
 - Certain features should only be visible to registered users.
 - Rating for a location is static, needs to be average of user ratings.
 - Weather API does not seems to want to work on Heroku.

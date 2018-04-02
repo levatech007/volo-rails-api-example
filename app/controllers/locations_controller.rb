@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show, :weather ]
+  require 'date'
 
     def index
         @locations = Location.all()
@@ -30,8 +31,9 @@ class LocationsController < ApplicationController
       @location = Location.find(params[:id])
       lat = @location.latitude
       lon = @location.longitude
-      weather_forecast = Weather.new(lat, lon)
-      @forecast = weather_forecast.get_forecast()
+      @weather_forecast = Weather.new(lat, lon)
+      @forecast = @weather_forecast.get_forecast()
+      p(@forecast)
       render json: @forecast
     end
 
