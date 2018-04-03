@@ -21,6 +21,7 @@ Back end:
 - Ruby on Rails
 - PostgresQL
 - Devise Token Auth
+- RestClient for external API calls
 
 ### Links:
 

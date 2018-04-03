@@ -24,10 +24,11 @@ class Weather
             'wind_dir' => WIND_DIRECTIONS.find {|key, val| key === one_forecast['wind']['deg'].round }.last,
             'wind_speed' => one_forecast['wind']['speed'].round,
             'temp' => one_forecast['main']['temp'].round,
-            'conditions' => one_forecast['weather'][0]['id'],
-
+            'conditions_icon' => ICON_URL.find {|key, val| key === one_forecast['weather'][0]['id']}.last,
+            'conditions_txt' => one_forecast['weather'][0]['main']
           }
           @filtered_weather << day_forecast
+          # @filtered_weather << one_forecast
         end
       end
 
