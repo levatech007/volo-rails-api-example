@@ -25,10 +25,9 @@ class Weather
             'wind_speed' => one_forecast['wind']['speed'].round,
             'temp' => one_forecast['main']['temp'].round,
             'conditions_icon' => ICON_URL.find {|key, val| key === one_forecast['weather'][0]['id']}.last,
-            'conditions_txt' => one_forecast['weather'][0]['main']
+            'conditions_txt' => one_forecast['weather'][0]['main'],
           }
           @filtered_weather << day_forecast
-          # @filtered_weather << one_forecast
         end
       end
 

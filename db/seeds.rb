@@ -32,6 +32,7 @@ locations_data = [{
   description: "Great waterfront location that overlooks planes taking off and landing on runways 10R/28L and 10L/28R",
   latitude: 37.6040697,
   longitude: -122.3734245,
+  timezone: -7,
 },
 {
   name: "In'n'Out @ W 92nd Street",
@@ -42,6 +43,7 @@ locations_data = [{
   description: "It’s only a short walk away from the edge of LAX runways 24R and 24L. Landing jets pass almost directly over the park.",
   latitude: 33.9531115,
   longitude: -118.3968193,
+  timezone: -7,
 },
 {
   name: "Clutter's Park",
@@ -51,7 +53,8 @@ locations_data = [{
   rating: 3.5,
   description: "A lookout point with panoramic views of the airport. Marvel at the sheer beauty of physics in motion.",
   latitude: 33.9308675,
-  longitude: -118.4115703
+  longitude: -118.4115703,
+  timezone: -7,
 },
 {
   name: "Maho Beach",
@@ -62,6 +65,7 @@ locations_data = [{
   description: "Planes fly over beach-goers' heads and plane spotters cling to fences to feel the jet blast of aircraft taking off.",
   latitude: 18.0391175,
   longitude: -63.120365,
+  timezone: -4,
 }
 ]
 
