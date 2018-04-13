@@ -16,7 +16,7 @@ names = ["Melissa", "John", "Jane", "Mary", "Dan", "Tom"]
 names.each do |name|
   users_data << {
     name: name,
-    password: "abcd1234",
+    password: "abcd123456",
     email: "#{name}@example.com".downcase
   }
 end

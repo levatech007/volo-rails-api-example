@@ -1,8 +1,9 @@
 class Weather
 
-  def initialize(lat, lon)
+  def initialize(lat, lon, location_id)
     @lat = lat
     @lon = lon
+    @location_id = location_id
   end
 
   def get_forecast
