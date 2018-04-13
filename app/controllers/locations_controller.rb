@@ -31,9 +31,9 @@ class LocationsController < ApplicationController
       @location = Location.find(params[:id])
       lat = @location.latitude
       lon = @location.longitude
-      @weather_forecast = Forecast.new(lat, lon, location_id)
+      timezone = @location.timezone
+      @weather_forecast = Forecast.new(lat, lon, location_id, timezone)
       @forecast = @weather_forecast.get_forecast()
-      p(@forecast)
       render json: @forecast
     end
 
