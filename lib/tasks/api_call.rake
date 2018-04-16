@@ -1,3 +1,5 @@
+require 'Forecast'
+
 namespace :api_call do
   desc "Get weather forecast"
   task weather: :environment do
