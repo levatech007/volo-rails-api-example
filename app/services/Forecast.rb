@@ -8,12 +8,13 @@ class Forecast
   end
 
   def get_forecast
-    Weather.destroy_all
+    # Weather.destroy_all(location_id: @location_id)
     response = RestClient::Request.execute(
       method: :get,
       url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=#{ ENV['WEATHER_API_KEY'] }"
       )
       @json_response = JSON.parse(response)
+      p(@json_response)
       @filtered_response = []
 
       @json_response['list'].each do |forecast|
