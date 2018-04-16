@@ -4,7 +4,6 @@ namespace :api_call do
     Weather.destroy_all
     locations = Location.all
     locations.each do |location|
-      p(location)
       @lat = location.latitude
       @lon = location.longitude
       @timezone = location.timezone

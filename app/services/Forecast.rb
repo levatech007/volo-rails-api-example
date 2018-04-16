@@ -14,7 +14,6 @@ class Forecast
       url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=#{ ENV['WEATHER_API_KEY'] }"
       )
       @json_response = JSON.parse(response)
-      p(@json_response)
       @filtered_response = []
 
       @json_response['list'].each do |forecast|
