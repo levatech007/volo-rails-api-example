@@ -1,5 +1,5 @@
 desc "Get weather forecast"
-task weather: => :environment do
+task weather: :environment do
   Weather.destroy_all
   locations = Location.all
   locations.each do |location|
