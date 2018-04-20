@@ -1,8 +1,7 @@
 class WeatherforecastWorker
   include Sidekiq::Worker
 
-  def perform(*args)
-    puts "I am busy mailing newsletter."
+  def perform
     Weather.destroy_all
     locations = Location.all
     locations.each do |location|
@@ -12,5 +11,6 @@ class WeatherforecastWorker
       @location_id = location.id
       @weather_f = Forecast.new(@lat,@lon,@location_id,@timezone)
       @weather_f.get_forecast()
+    end
   end
 end
