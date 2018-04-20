@@ -6,5 +6,5 @@ queue_name: "default" # The Sidekiq queue name used by SimpleScheduler::FutureJo
 
 weather_task:
   class: "WeatherforecastWorker"
-  every: "30.minutes"
-  at: "3:00"
+  every: "1.day"
+  at: "7:00"
