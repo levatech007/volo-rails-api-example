@@ -1,10 +1,10 @@
 # Global configuration options. The `queue_ahead` and `tz` options can also be set on each task.
-queue_ahead: 360 # Number of minutes to queue jobs into the future
-queue_name: "default" # The Sidekiq queue name used by SimpleScheduler::FutureJob
+# queue_ahead: 360 # Number of minutes to queue jobs into the future
+# queue_name: "default" # The Sidekiq queue name used by SimpleScheduler::FutureJob
 
 
 
-weather_task:
-  class: "WeatherforecastWorker"
-  every: "1.day"
-  at: "12:00"
+# weather_task:
+#   class: "WeatherforecastWorker"
+#   every: "1.day"
+#   at: "12:00"
