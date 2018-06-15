@@ -13,22 +13,22 @@ port        ENV.fetch("PORT") { 8000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-# environment ENV.fetch("RAILS_ENV") { "development" }
-# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
-#
-# preload_app!
-#
-# before_fork do
-#     @sidekiq_pid ||= spawn('bundle exec sidekiq -t 25')
-# end
-#
-# on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-# end
-#
-# on_restart do
-#   Sidekiq.redis.shutdown { |conn| conn.close }
-# end
+environment ENV.fetch("RAILS_ENV") { "development" }
+workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+
+preload_app!
+
+before_fork do
+    @sidekiq_pid ||= spawn('bundle exec sidekiq -t 2')
+end
+
+on_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
+
+on_restart do
+  Sidekiq.redis.shutdown { |conn| conn.close }
+end
 
 
 # Specifies the number of `workers` to boot in clustered mode.
