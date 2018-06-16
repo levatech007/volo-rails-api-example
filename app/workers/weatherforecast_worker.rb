@@ -1,10 +1,12 @@
 class WeatherforecastWorker
   include Sidekiq::Worker
+  sidekiq_options retry: false
 
   def perform
     Weather.destroy_all
     locations = Location.all
     locations.each do |location|
+      p(locations)
       @lat = location.latitude
       @lon = location.longitude
       @timezone = location.timezone
