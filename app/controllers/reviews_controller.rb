@@ -7,8 +7,6 @@ class ReviewsController < ApplicationController
     end
 
     def create
-      p(params)
-      p(current_user)
       review = Review.new(
         author: params[:author],
         content: params[:content],

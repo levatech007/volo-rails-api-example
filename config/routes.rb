@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :calendars
   resources :users
   get "locations/:id/weather", to: "locations#weather", as: "location_weather"
+  post "subscribe", to: "email_list#create", as: "subscribe"
 end
