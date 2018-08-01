@@ -25,6 +25,10 @@ Back end:
 - RestClient
 - Devise Token Auth
 
+3rd Party APIs:
+- Openweathermap
+- Mailchimp
+
 ### Links:
 
 - Front end app [Github](https://github.com/levatech007/volo-react-app)
