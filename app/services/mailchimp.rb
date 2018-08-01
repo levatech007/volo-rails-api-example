@@ -7,7 +7,6 @@ class Mailchimp
   end
 
   def subscribe
-    p("here we go!")
     auth = Base64.encode64("volo:#{ENV['MC_API_KEY']}")
     data = { email_address: @email, status: 'subscribed' }
     response = RestClient::Request.execute(
@@ -19,5 +18,4 @@ class Mailchimp
       headers: { Authorization: auth, content_type: 'application/json' }
     )
   end
-
 end
