@@ -18,13 +18,13 @@ class Forecast
       @json_response['list'].each do |forecast|
         t = Time.at(forecast['dt'])
         adj_t = t - (60*60*3)
-        @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3
+        @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3 #select only 2 forecasts per day
       end
 
       @filtered_response.each_with_index do |one_forecast, idx|
         t = Time.at(one_forecast['dt'])
         adj_t = t - (60*60*3)
-        if idx.even?
+        if idx.even? #even idx is main forecast for day
           location = Location.find_by_id(@location_id)
           weather = Weather.new(
             date: adj_t,
@@ -34,7 +34,7 @@ class Forecast
             wind_dir: WIND_DIRECTIONS.find {|key, val| key === one_forecast['wind']['deg'].round }.last,
             wind_speed: one_forecast['wind']['speed'].round,
             high_temp: one_forecast['main']['temp'].round,
-            low_temp: @filtered_response[idx+1]['main']['temp'].round,
+            low_temp: @filtered_response[idx+1]['main']['temp'].round, #add nighttime low temp from odd idx
             conditions_icon: ICON_URL.find {|key, val| key === one_forecast['weather'][0]['id']}.last,
             conditions_txt: one_forecast['weather'][0]['main'],
           )
