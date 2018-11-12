@@ -12,4 +12,5 @@ class UsersController < ApplicationController
       render :json => @user.to_json( :include => :calendars )
     end
   end
+
 end

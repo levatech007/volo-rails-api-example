@@ -20,6 +20,4 @@ class ReviewsController < ApplicationController
         render json: {review: review}
       end
     end
-
-
 end
