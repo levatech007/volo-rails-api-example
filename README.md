@@ -64,7 +64,6 @@ To install dependencies on the back end, run:
 
 ![Wireframes](/images/calendar-page.png)
 
-
 ## Wireframes
 
 ![Wireframes](/images/wireframes.JPG)
@@ -72,9 +71,11 @@ To install dependencies on the back end, run:
 ## ERD
 ![Wireframes](/images/ERD.png)
 
-## Unsolved Problems:
-- Routes don’t have any authorization.
-- Location marker on map is centered at coordinates, pointer is offset.
+## Unsolved Problems in BE:
+- Routes don’t have authorization.
+- Password change is not functional beyond receiving password reset email.
+- Weather data is duplicated in Heroku.
+-
 
 ## Future Features:
 - Airport information with flight schedules.
