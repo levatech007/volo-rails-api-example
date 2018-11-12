@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  # Include default devise modules.
-  # Include default devise modules.
+
   has_many :reviews, dependent: :destroy
   has_many :calendars, dependent: :destroy
 
