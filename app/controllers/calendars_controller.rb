@@ -1,21 +1,13 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
-  require 'date'
 
     def index
         @calendars = Calendar.all()
         render json: @calendars
     end
 
-    def show
-      user_id = current_user.id
-      @calendar = Calendar.find(params[:user_id])
-      p(Date.today) #use for weather info
-      render json: @calendar
-    end
-
     def create
-      calendar = Calendar.new(
+      @calendar = Calendar.new(
           location: params[:location],
           date: params[:date],
           notes: params[:notes],
@@ -25,9 +17,22 @@ class CalendarsController < ApplicationController
           weekday: params[:weekday],
           icon_url: params[:icon_url],
           )
-          calendar.user_id = current_user.id
-        if calendar.save
-          render json: { calendar: calendar }
+          @calendar.user_id = current_user.id
+        if @calendar.save
+          render json: { calendar: @calendar }, status: :ok
+        else
+          render json: { error: "Can not save entry"}, status: :bad_request
         end
+    end
+
+    def destroy
+      @calendar = Calendar.find_by_id(params[:id])
+      if current_user.id == @calendar.user_id && @calendar
+        @calendar.destroy
+        render json: {}, status: :ok
+      else
+        render json: { error: "Calendar entry not found"}, status: :not_found
+      end
+
     end
 end
