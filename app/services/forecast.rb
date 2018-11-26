@@ -24,7 +24,7 @@ class Forecast
       @filtered_response.each_with_index do |one_forecast, idx|
         t = Time.at(one_forecast['dt'])
         adj_t = t - (60*60*3)
-        if idx.even? #even idx is main forecast for day
+        if idx.even? #even idx is main forecast used for the day
           location = Location.find_by_id(@location_id)
           weather = Weather.new(
             date: adj_t,
