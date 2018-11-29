@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 
     def index
         @locations = Location.all()
-        render json: @locations
+        render json: @locations, status: :ok
     end
 
     def show
@@ -29,7 +29,7 @@ class LocationsController < ApplicationController
       location_id = params[:id]
       @location = Location.find(params[:id])
       @forecast = Weather.where(location_id: @location.id)
-      render json: @forecast
+      render json: { forecast: @forecast }, status: :ok
     end
 
 end

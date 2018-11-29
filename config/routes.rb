@@ -16,11 +16,13 @@ Rails.application.routes.draw do
   post "reviews", to: "reviews#create"
   delete "reviews/:id ", to: "reviews#destroy"
   # CALENDARS
-  get "calendars", to: "calendars#index" # dev only
   post "calendars", to: "calendars#create"
   delete "calendars/:id", to: "calendars#destroy"
 
-  resources :users # dev only!
+  if Rails.env.development?
+    get "calendars", to: "calendars#index" 
+    resources :users
+  end
   # EMAIL LIST
   post "subscribe", to: "email_list#create", as: "subscribe"
 end

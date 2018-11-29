@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 
     def index
         @reviews = Review.all()
-        render json: @reviews
+        render json: { reviews: @reviews }, status: :ok
     end
 
     def create
@@ -17,7 +17,9 @@ class ReviewsController < ApplicationController
       @review.location_id = location.id
       @review.user_id = current_user.id
       if @review.save
-        render json: {review: @review}
+        render json: {review: @review}, status: :ok
+      else
+        render json: { error: "unauthorized"}, status: :unauthorized
       end
     end
 
@@ -25,9 +27,9 @@ class ReviewsController < ApplicationController
       @review = Review.find_by_id(params[:id])
       if @review.user_id == current_user.id
         @review.delete
-        render json: {review: @review}, :status => :ok
+        render json: {}, status: :ok
       else
-        render :status => :unauthorized
+        render json: { error: "unauthorized"}, status: :unauthorized
       end
     end
 end

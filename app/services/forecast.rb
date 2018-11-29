@@ -27,6 +27,7 @@ class Forecast
         if idx.even? #even idx is main forecast used for the day
           location = Location.find_by_id(@location_id)
           weather = Weather.new(
+            # format weather info: 
             date: adj_t,
             day: adj_t.day,
             month: MONTHS.find {|key, val| key === adj_t.month }.last,
