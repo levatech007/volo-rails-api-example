@@ -4,7 +4,7 @@ class Forecast
     @lat = lat
     @lon = lon
     @location_id = location_id
-    @timezone = timezone
+    @timezone = timezone #for future use to adjust weather forecast to user timezone
   end
 
   def get_forecast
@@ -18,17 +18,17 @@ class Forecast
       @json_response['list'].each do |forecast|
         t = Time.at(forecast['dt'])
         adj_t = t - (60*60*3)
-        @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3 #select only 2 forecasts per day
+        @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3 #select only 2 forecasts per day (hours 3pm/15:00 and 3am/3:00)
       end
-
+      p(@filtered_response)
       @filtered_response.each_with_index do |one_forecast, idx|
         t = Time.at(one_forecast['dt'])
         adj_t = t - (60*60*3)
         if idx.even? #even idx is main forecast used for the day
           location = Location.find_by_id(@location_id)
           weather = Weather.new(
-            # format weather info: 
-            date: adj_t,
+            # format weather info:
+            date: one_forecast['dt'],
             day: adj_t.day,
             month: MONTHS.find {|key, val| key === adj_t.month }.last,
             day_of_week: DAYS_OF_WEEK.find {|key, val| key === adj_t.wday }.last,
@@ -41,6 +41,7 @@ class Forecast
           )
             weather.location_id = location.id
             weather.save
+            p(weather)
           end
         end
   end
