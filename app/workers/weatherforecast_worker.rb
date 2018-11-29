@@ -10,8 +10,8 @@ class WeatherforecastWorker
       @lon = location.longitude
       @timezone = location.timezone
       @location_id = location.id
-      @weather_forecast = Forecast.new(@lat,@lon,@location_id,@timezone)
-      @weather_forecast.get_forecast()
+      @weather_f = Forecast.new(@lat,@lon,@location_id,@timezone)
+      @weather_f.get_forecast()
     end
   end
 end

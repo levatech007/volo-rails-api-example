@@ -13,14 +13,22 @@ class Forecast
       url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=#{ ENV['WEATHER_API_KEY'] }"
       )
       @json_response = JSON.parse(response)
+      p(@json_response)
       @filtered_response = []
 
       @json_response['list'].each do |forecast|
         t = Time.at(forecast['dt'])
         adj_t = t - (60*60*3)
-        @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3 #select only 2 forecasts per day (hours 3pm/15:00 and 3am/3:00)
+        p(adj_t)
+        #select only 2 forecasts per day (hours 3pm/15:00 and 3am/3:00)
+        #openweatherapi is based in Russia and time in response don't seem to adjust to daylight savings
+        if Rails.env.development? #if Rails does not show any weather data saved, check the adj time as it may have changed
+          @filtered_response << forecast if adj_t.hour == 13 || adj_t.hour == 1 #works in dev, not heroku
+        else
+          @filtered_response << forecast if adj_t.hour == 15 || adj_t.hour == 3 #works in heroku, not in dev
+        end
       end
-      p(@filtered_response)
+
       @filtered_response.each_with_index do |one_forecast, idx|
         t = Time.at(one_forecast['dt'])
         adj_t = t - (60*60*3)
@@ -28,7 +36,7 @@ class Forecast
           location = Location.find_by_id(@location_id)
           weather = Weather.new(
             # format weather info:
-            date: one_forecast['dt'],
+            date: adj_t,
             day: adj_t.day,
             month: MONTHS.find {|key, val| key === adj_t.month }.last,
             day_of_week: DAYS_OF_WEEK.find {|key, val| key === adj_t.wday }.last,
