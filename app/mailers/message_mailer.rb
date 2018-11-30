@@ -1,10 +1,9 @@
 class MessageMailer < ApplicationMailer
-  default from: "voloappheroku@gmail.com"
-  layout "mailer"
+  default from: ENV['GMAIL_USERNAME']
 
-  def send_message(recipient, message)
+  def message_mailer(recipient, message) #function name must match the mailer layout name to render it automatically
     @message = message
     @recipient = recipient
-    mail(to: @recipient, subject: 'Sample Email', body: 'Some text')
+    mail(to: @recipient, subject: "Message from #{ @message.name }")
   end
 end

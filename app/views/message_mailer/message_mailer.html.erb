@@ -5,9 +5,8 @@
   </head>
   <body>
     <h1>Message received:</h1>
-    <p>
-      Sample mail sent using smtp.
-    </p>
-    <!-- create message with ul/li -->
+      <p>From: <%= @message.name %></p>
+      <p>Email: <%= @message.email %></p>
+      <p>Message: <%= @message.body %></p>
   </body>
 </html>
