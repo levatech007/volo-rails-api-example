@@ -4,11 +4,15 @@ class MessagesController < ApplicationController
       @message = Message.new(message_params)
       @recipient = ENV['GMAIL_USERNAME']
       p(@message)
+      p(@recipient)
+
       if @message.valid?
         MessageMailer.send_message(@recipient, @message).deliver_now
+        render json: {result: 'Successfully submitted'}, status: :ok
         # return ok
       else
         #send error
+        
       end
     end
 
