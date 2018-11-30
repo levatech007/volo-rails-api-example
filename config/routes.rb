@@ -19,8 +19,11 @@ Rails.application.routes.draw do
   post "calendars", to: "calendars#create"
   delete "calendars/:id", to: "calendars#destroy"
 
+  #CONTACT FORM PROCESSING
+  post "message", to: "messages#create"
+
   if Rails.env.development?
-    get "calendars", to: "calendars#index" 
+    get "calendars", to: "calendars#index"
     resources :users
   end
   # EMAIL LIST
