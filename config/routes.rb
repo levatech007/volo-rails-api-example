@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   mount_devise_token_auth_for 'User', at: 'auth'
-  # root :to => "controller#action"
+  root to: "documentation#index"
+
   # LOCATIONS
   get "locations", to: "locations#index"
   post "locations", to: "locations#create"
