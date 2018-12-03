@@ -9,6 +9,7 @@ User.destroy_all
 Location.destroy_all
 Review.destroy_all
 Calendar.destroy_all
+Weather.destroy_all
 
 # Users
 users_data = []
