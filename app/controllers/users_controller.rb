@@ -15,8 +15,4 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-      #update user profile: email, name, profile image 
-  end
-
 end
