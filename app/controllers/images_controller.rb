@@ -3,17 +3,19 @@ class ImagesController < ApplicationController
 
   def show
     #return only last image? later =>  image.active == true
-
+    @image = Image.find_by( user_id: current_user.id )
+    # @imageToSend = uploader.retrieve_from_store!(@image.avatar)
+    render json: { image: @image }, status: :ok
   end
 
   def create
-    # add uploaded image to user
     @image = Image.new
     @image.avatar = params[:avatar]
-    #@image.active = true, set all others to false?
+    #@image.active = true,
+    # find user images, set others active = false
     @image.user_id = current_user.id
-    @image.save! #remove and don't save if its there is no image
-    if @image.avatar.file.nil?
+     #remove and don't save if its there is no image
+    if @image.save! && !@image.avatar.file.nil?
       render json: { error: "Something went wrong" }, status: :bad_request
     else
       render json: { message: "Successfully saved" }, status: :ok

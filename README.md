@@ -24,6 +24,7 @@ Back end:
 - PostgreSQL
 - RestClient
 - Devise Token Auth
+- CarrierWave 
 
 3rd Party APIs:
 - Openweathermap
