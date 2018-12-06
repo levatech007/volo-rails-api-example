@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   post "subscribe", to: "email_list#create", as: "subscribe"
 
   # USER PROFILE IMAGE UPLOAD
-  post "image", to: "images#create", as: "profile_image"
+  get "image", to: "images#show"
+  post "images", to: "images#create"
 end
