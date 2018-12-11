@@ -79,6 +79,7 @@ To install dependencies on the back end, run:
 -
 
 ## Future Features:
+- Separate Aviation API to retrieve flight/aircraft data (W.I.P) [Github](https://github.com/levatech007/aviation-api)
 - Airport information with flight schedules.
 - Nearby flights on map, real time.
 - Selecting locations based on type of plane user wants to see as well as by busiest times at given airport.
