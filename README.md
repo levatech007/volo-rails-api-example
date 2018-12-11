@@ -73,10 +73,9 @@ To install dependencies on the back end, run:
 ![Wireframes](/images/ERD.png)
 
 ## Unsolved Problems in BE:
-- Routes don’t have authorization.
-- Password change is not functional beyond receiving password reset email.
-- Weather data is duplicated in Heroku.
--
+- Weather data gets duplicated in Heroku.
+- Image upload only works locally
+
 
 ## Future Features:
 - Separate Aviation API to retrieve flight/aircraft data (W.I.P) [Github](https://github.com/levatech007/aviation-api)
