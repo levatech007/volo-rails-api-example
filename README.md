@@ -78,6 +78,7 @@ To install dependencies on the back end, run:
 
 
 ## Future Features:
+- Enable OAuth login
 - Separate Aviation API to retrieve flight/aircraft data (W.I.P) [Github](https://github.com/levatech007/aviation-api)
 - Airport information with flight schedules.
 - Nearby flights on map, real time.
