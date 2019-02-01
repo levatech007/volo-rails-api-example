@@ -33,4 +33,8 @@ Rails.application.routes.draw do
   # USER PROFILE IMAGE UPLOAD
   get "image", to: "images#show"
   post "images", to: "images#create"
+
+  # AVIATION API RELATED
+  get "documentation", to: "api#get_documentation"
+
 end

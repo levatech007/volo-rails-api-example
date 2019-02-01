@@ -4,7 +4,6 @@ class ImagesController < ApplicationController
   def show
     #return only last image? later =>  image.active == true
     @image = Image.find_by( user_id: current_user.id )
-    # @imageToSend = uploader.retrieve_from_store!(@image.avatar)
     render json: { image: @image }, status: :ok
   end
 
