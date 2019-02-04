@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable,
          :confirmable,
-         :omniauthable
+         :omniauthable,
          omniauth_providers: [:google_oauth2]
-         
+
   include DeviseTokenAuth::Concerns::User
 end
