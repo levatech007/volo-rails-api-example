@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :rememberable,
          :trackable,
          :validatable,
-         :confirmable,
+         #:confirmable,
          :omniauthable,
          omniauth_providers: [:google_oauth2]
 
