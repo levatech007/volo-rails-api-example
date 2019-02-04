@@ -29,9 +29,7 @@ module VoloRailsApi
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
-    # config.middleware.use Rack::Session::Cookie
-    config.middleware.insert_after ActiveRecord::Migration::CheckPending, ActionDispatch::Cookies
-    config.middleware.insert_after ActionDispatch::Cookies, ActionDispatch::Session::CookieStore
+    config.middleware.use Rack::Session::Cookie
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
   end
