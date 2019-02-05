@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  require 'devise_token_auth'
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  mount_devise_token_auth_for 'User', at: 'auth'
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: { omniauth_callbacks: 'overrides/omniauth_callbacks' }
   root to: "documentation#index"
 
   # LOCATIONS
