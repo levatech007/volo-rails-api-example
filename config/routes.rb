@@ -38,4 +38,6 @@ Rails.application.routes.draw do
   # AVIATION API RELATED
   get "documentation", to: "api#get_documentation"
 
+  # FLIGHTS CONTROLLER
+  get "nonstopflights/:airport/:date", to: "flights#get_nonstop_flights"
 end
