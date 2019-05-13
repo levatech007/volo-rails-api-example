@@ -13,13 +13,11 @@ class Forecast
       url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=#{ ENV['WEATHER_API_KEY'] }"
       )
       @json_response = JSON.parse(response)
-      p(@json_response)
       @filtered_response = []
 
       @json_response['list'].each do |forecast|
         t = Time.at(forecast['dt'])
         adj_t = t - (60*60*3)
-        p(adj_t)
         #select only 2 forecasts per day (main forecast for daytime, second for nighttime)
         #openweatherapi is based in Russia and time in response don't seem to adjust to daylight savings
         if Rails.env.development? #if Rails does not show any weather data saved, check the adj time as it may have changed
@@ -49,7 +47,6 @@ class Forecast
           )
             weather.location_id = location.id
             weather.save
-            p(weather)
           end
         end
   end

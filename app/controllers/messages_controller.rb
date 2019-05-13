@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def create
       @message = Message.new(message_params)
       @recipient = ENV['GMAIL_USERNAME']
+      # validate params!!!
 
       if @message.valid?
         MessageMailer.message_mailer(@recipient, @message).deliver_now

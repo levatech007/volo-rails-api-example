@@ -5,4 +5,5 @@ class ApiController < ApplicationController
     response = RestClient.get ENV['API_URL']
     render json: { documentation:  JSON.parse(response)}, status: :ok
   end
+
 end
