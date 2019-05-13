@@ -8,3 +8,8 @@ overnight_task:
   class: "WeatherforecastWorker"
   every: "1.day"
   at: "8:00"
+
+overnight_task:
+  class: "NonstopFlightsWorker"
+  every: "1.day"
+  at: "1:00"
