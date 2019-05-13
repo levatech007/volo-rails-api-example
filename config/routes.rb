@@ -39,5 +39,5 @@ Rails.application.routes.draw do
   get "documentation", to: "api#get_documentation"
 
   # FLIGHTS CONTROLLER
-  get "nonstopflights/:airport/:date", to: "flights#get_nonstop_flights"
+  get "nonstopflights/:airport/:date/:aircraft", to: "flights#get_nonstop_flights"
 end
