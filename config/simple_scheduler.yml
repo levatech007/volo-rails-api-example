@@ -9,7 +9,7 @@ overnight_task:
   every: "1.day"
   at: "8:00"
 
-# overnight_task:
-#   class: "NonstopFlightsWorker"
-#   every: "1.day"
-#   at: "1:00"
+overnight_task:
+  class: "NonstopFlightsWorker"
+  every: "1.day"
+  at: "1:00"
