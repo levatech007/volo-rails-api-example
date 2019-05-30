@@ -24,7 +24,13 @@ Back end:
 - PostgreSQL
 - RestClient
 - Devise Token Auth
-- CarrierWave 
+- CarrierWave
+
+Volo Public API:
+- Rack
+- Roda Routing Tree
+- Sequel
+- Redis
 
 3rd Party APIs:
 - Openweathermap
@@ -32,11 +38,14 @@ Back end:
 
 ### Links:
 
-- Front end app [Github](https://github.com/levatech007/volo-react-app)
-- Front end app [Heroku](https://volo-app.herokuapp.com)
+- Front end app [Github](https://github.com/levatech007/volo-react-app-example)
+- Front end app [Heroku](https://www.spotvolo.com)
+- Front end mobile app [Github](https://github.com/levatech007/volo-react-native)(W.I.P)
 
-- Back end app [Github](https://github.com/levatech007/volo_rails_api)
+- Back end app [Github](https://github.com/levatech007/volo-rails-api-example)
 - Back end app [Heroku](https://volo-rails-api.herokuapp.com)
+
+- Volo Public API [Github](https://github.com/levatech007/aviation-api-sample)
 
 ## Installation:
 
@@ -51,10 +60,12 @@ To install dependencies on the back end, run:
 
 ![Wireframes](/images/login-page.png)
 
+![Wireframes](/images/signup-page.png)
+
 - Users can select a plane spotting location and see information about that locations, including a map.
 - Users can read other users reviews of the location as well as post their own review.
 
-![Wireframes](/images/locations-menu-page.png)
+![Wireframes](/images/location-menu-page.png)
 
 ![Wireframes](/images/location-page.png)
 
@@ -65,8 +76,17 @@ To install dependencies on the back end, run:
 
 ![Wireframes](/images/calendar-page.png)
 
-## Wireframes
+- Users can select the aircraft they want to see and get the aircrafts landing/take-off times for selected airport.
 
+![Wireframes](/images/select-aircraft.png)
+
+![Wireframes](/images/flight-schedule.png)
+
+- Users can get access to the Volo Public API via documentation page.
+
+![Wireframes](/images/api-page.png)
+
+## Wireframes
 ![Wireframes](/images/wireframes.JPG)
 
 ## ERD
