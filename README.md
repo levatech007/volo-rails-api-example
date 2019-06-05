@@ -1,6 +1,6 @@
 # VOLO - the app for plane spotters (API)
 
-Volo (Italian for flight) is an app for plane spotters. You can find information about plane spotting locations around the world with user reviews of each location. The app also lets you create an account, check weather forecast for chosen location as well as add a select day to your calendar.
+Volo (Italian for flight) is an app for plane spotters. You can find information about plane spotting locations around the world with user reviews of each location. The app also lets you create an account, check weather forecast for chosen location as well as add a select day to your calendar. You can select an aircraft and see when your chose aircraft can be seen at selected airport.
 
 ![Wireframes](/images/volo-homepage.png)
 
@@ -16,6 +16,7 @@ Front end:
 - J-toker (for authentication)
 - React Stars
 - React Google Map
+- Netlify
 
 Back end:
 - Rails
@@ -25,12 +26,15 @@ Back end:
 - RestClient
 - Devise Token Auth
 - CarrierWave
+- Nokogiri
+- Heroku
 
 Volo Public API:
 - Rack
 - Roda Routing Tree
 - Sequel
 - Redis
+- Heroku
 
 3rd Party APIs:
 - Openweathermap
@@ -39,7 +43,7 @@ Volo Public API:
 ### Links:
 
 - Front end app [Github](https://github.com/levatech007/volo-react-app-example)
-- Front end app [Heroku](https://www.spotvolo.com)
+- Front end app [Live Site](https://www.spotvolo.com)
 - Front end mobile app [Github](https://github.com/levatech007/volo-react-native)(W.I.P)
 
 - Back end app [Github](https://github.com/levatech007/volo-rails-api-example)
