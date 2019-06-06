@@ -1,3 +1,4 @@
+# handles contact form processing
 class MessagesController < ApplicationController
 
   def create
@@ -8,10 +9,8 @@ class MessagesController < ApplicationController
       if @message.valid?
         MessageMailer.message_mailer(@recipient, @message).deliver_now
         render json: {result: 'Successfully submitted'}, status: :ok
-        # return ok
       else
         #send error
-
       end
     end
 

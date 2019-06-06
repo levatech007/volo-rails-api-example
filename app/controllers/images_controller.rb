@@ -1,5 +1,6 @@
+# handle user profile image uploads and requests
 class ImagesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def show
     #return only last image? later =>  image.active == true
@@ -10,8 +11,6 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new
     @image.avatar = params[:avatar]
-    #@image.active = true,
-    # find user images, set others active = false
     @image.user_id = current_user.id
      #remove and don't save if its there is no image
     if @image.save! && !@image.avatar.file.nil?

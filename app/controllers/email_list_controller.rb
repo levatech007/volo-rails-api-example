@@ -1,3 +1,4 @@
+# subscribe email to Mailchimp mailing list
 class EmailListController < ApplicationController
 
   def create

@@ -1,3 +1,4 @@
+# Get Volo Flight API documentation
 class ApiController < ApplicationController
   require 'rest-client'
 

@@ -1,3 +1,4 @@
+# send contact form message
 class MessageMailer < ApplicationMailer
   default from: ENV['GMAIL_USERNAME']
 

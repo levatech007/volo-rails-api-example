@@ -1,3 +1,5 @@
+# FUTURE FEATURE: get nonstop flights for all airports.
+# currently flights are requested through flights_controller every time a user makes a request.
 class NonstopFlightsWorker
   include Sidekiq::Worker
   sidekiq_options retry: false
@@ -14,17 +16,13 @@ class NonstopFlightsWorker
         redis_expiry_unix_date = (date + 8).to_time.to_i # expires in 8 days
         # create redis key e.g. "SFO:nonstop:2019-05-01" => airport_code:name:date
         airport_date_key = "#{ airport }:nonstop:#{ formatted_date }"
-        p(airport_date_key)
         # check if key already exists in redis
         unless $redis.exists(airport_date_key)
-            p("No key")
             daily_flights = Nonstopflights.new(airport, formatted_date).get_flights
-            # p(daily_flights)
             # filter aircrafts and set available
             $redis.set(airport_date_key, daily_flights)
             $redis.expireat(airport_date_key, redis_expiry_unix_date)
             test = $redis.get(airport_date_key)
-            p(test)
             # WAIT certain amount of time
         end
     #  end
