@@ -21,7 +21,7 @@ class Forecast
   def get_forecast
     response = RestClient::Request.execute(
       method: :get,
-      url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=e80326d458fab8fff20d7e2dda2fbd43"
+      url: "https://api.openweathermap.org/data/2.5/forecast?lat=#{@lat}&lon=#{@lon}&units=imperial&APPID=#{ ENV['WEATHER_KEY'] }"
       )
       @json_response = JSON.parse(response)
       @filtered_response = []
