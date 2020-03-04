@@ -8,7 +8,7 @@ end
 
 gem 'rails', '~> 5.1.5'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'thin'
 gem 'devise_token_auth', ">=0.1.43"
 gem 'rest-client'
